@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Add Course</h2>
+
+<form method="post">
+    Course ID: <input name="id" required><br><br>
+    Course Name: <input name="name" required><br><br>
+    Duration (months): <input name="duration" type="number" required><br><br>
+    Start Date: <input name="start_date" type="date" required><br><br>
+    End Date: <input name="end_date" type="date" required><br><br>
+    <button type="submit">Save</button>
+</form>
+
+<select name="course_id">
+  {% for c in courses %}
+    <option value="{{ c[0] }}">{{ c[1] }}</option>
+  {% endfor %}
+</select>
+
+{% endblock %}

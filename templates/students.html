@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Students List</h2>
+
+<a href="/add-student">➕ Add Student</a>
+
+<form method="get">
+    Course:
+    <select name="course_id">
+        <option value="">All</option>
+        {% for c in courses %}
+            <option value="{{ c[0] }}">{{ c[1] }}</option>
+        {% endfor %}
+    </select>
+
+    Status:
+    <select name="active">
+        <option value="">All</option>
+        <option value="1">Active</option>
+        <option value="0">Inactive</option>
+    </select>
+
+    <button type="submit">Filter</button>
+</form>
+
+<br>
+
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>ID</th><th>Name</th><th>Age</th><th>Course</th><th>Status</th><th>Actions</th>
+    </tr>
+    {% for s in students %}
+    <tr>
+        <td>{{ s[0] }}</td>
+        <td>{{ s[1] }}</td>
+        <td>{{ s[2] }}</td>
+        <td>{{ s[3] }}</td>
+        <td>{{ "Active" if s[4]==1 else "Inactive" }}</td>
+        <td>
+            <a href="/edit-student/{{ s[0] }}">Edit</a> |
+            <a href="/delete-student/{{ s[0] }}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

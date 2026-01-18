@@ -1,0 +1,23 @@
+<h2>Add Student</h2>
+
+<form method="post">
+    ID: <input name="id" required><br><br>
+    Name: <input name="name" required><br><br>
+    Age: <input name="age" type="number" required><br><br>
+
+    Course:
+    <select name="course_id" required>
+        {% for c in courses %}
+            <option value="{{ c[0] }}">{{ c[1] }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    
+    Active:
+    <select name="active">
+        <option value="1">Active</option>
+        <option value="0">Inactive</option>
+    </select><br><br>
+
+    <button type="submit">Save</button>
+</form>

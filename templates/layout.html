@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="sidebar">
+        <h2>Admin</h2>
+        <a href="/">Dashboard</a>
+        <a href="/students">Students</a>
+        <a href="#">Courses</a>
+        <a href="#">Attendance</a>
+        <a href="#">Reports</a>
+    </div>
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</div>
+
+</body>
+</html>

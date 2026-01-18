@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Reports</h2>
+
+<hr>
+
+<h3>Student Reports</h3>
+<a href="/export/students" class="btn">⬇ Export Students (CSV)</a>
+
+<hr>
+
+<h3>Attendance Reports</h3>
+
+<form method="get" action="/export/attendance">
+    <label>From:</label>
+    <input type="date" name="from_date" required>
+
+    <label>To:</label>
+    <input type="date" name="to_date" required>
+
+    <button type="submit">⬇ Export Attendance</button>
+</form>
+
+{% endblock %}

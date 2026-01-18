@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    background-color: #1f2933;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.sidebar a {
+    display: block;
+    color: #cbd5e1;
+    text-decoration: none;
+    padding: 10px 0;
+}
+
+.sidebar a:hover {
+    color: white;
+}
+
+.content {
+    flex: 1;
+    padding: 30px;
+    background-color: #f4f6f8;
+}
+
+.cards {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 6px;
+    width: 200px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}

@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Attendance</h2>
+
+<!-- DATE FILTER -->
+<form method="get" style="margin-bottom:20px;">
+    <label>Select Date:</label>
+    <input type="date" name="date" value="{{ selected_date }}" required>
+    <button type="submit">View</button>
+</form>
+
+{% if selected_date %}
+<a href="/export/attendance?date={{ selected_date }}">
+    <button type="button">Export Attendance canvas</button>
+</a>
+{% endif %}
+
+
+<hr>
+
+{% if selected_date %}
+<h3>Mark Attendance for {{ selected_date }}</h3>
+
+<form method="post">
+    <input type="hidden" name="date" value="{{ selected_date }}">
+
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Attendance</th>
+        </tr>
+
+        {% for s in students %}
+        <tr>
+            <td>{{ s[0] }}</td>   <!-- ID -->
+            <td>{{ s[1] }}</td>   <!-- NAME -->
+            <td>
+                <select name="status_{{ s[0] }}">
+                    <option value="1">Present</option>
+                    <option value="0">Absent</option>
+                </select>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <button type="submit">Save Attendance</button>
+</form>
+{% endif %}
+
+<hr>
+
+{% if records %}
+<h3>Attendance Records for {{ selected_date }}</h3>
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Status</th>
+    </tr>
+
+    {% for r in records %}
+    <tr>
+        <td>{{ r[0] }}</td>
+        <td>{{ r[1] }}</td>
+        <td>{{ r[2] }}</td>
+        <td>{{ "Present" if r[3]==1 else "Absent" }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+
+{% endblock %}
