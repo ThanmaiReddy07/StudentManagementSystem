@@ -28,14 +28,14 @@ Built using **Python**, **Flask**, and **SQLite**. Great for practicing full-sta
 ## How to Run
 
 1. Clone the repo:
-bash
-git clone https://github.com/ThanmaiReddy07/StudentManagementSystem.git
+   ```bash
+   git clone https://github.com/ThanmaiReddy07/StudentManagementSystem.git
 3. Install dependencies:
-bash
-pip install -r requirements.txt
+   ```bash
+   pip install -r requirements.txt
 4. Run the app:
-bash
-python app.py
+   ```bash
+   python app.py
 
 ---
 
